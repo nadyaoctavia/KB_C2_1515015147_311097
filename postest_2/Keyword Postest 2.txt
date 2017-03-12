@@ -1,0 +1,69 @@
+DOMAINS
+Domains menyatakan jenis suatu variabel. Ada beberapa domains standar yang dapat digunakan dalam prolog yaitu char, integer, string, symbols.
+Contoh:
+DOMAINS
+orang=symbols
+matakuliah=string
+angka=integer
+
+PREDICATES
+Predicates digunakan untuk mendeklarasikan predikat yang digunakan dalan bahasa Prolog. Menggabarkan relasi atau sifat objek, objek yang terkait disebut argumen.
+Contoh:
+PREDICATES
+suka(orang, orang).
+kuliah(orang, matakuliah).
+nilai(orang, matakuliah, angka).
+lulus(orang, matakuliah).
+
+CLAUSES
+Clauses terdiri dari fakta (fact) dan aturan (rule) yang mendefinisikan predicates. Fakta adalah suatu kenyataan atau kebenaran yang diketahui. Fakta menyatakan hubungan atau relasi antara dua objek atau lebih atau menunjukan sifat suatu objek. Aturan digunakan untuk meningkatkan kemampuan program sehingga diperlukan suatu rumusan logika.
+Contoh:
+CLAUSES
+%Fakta
+suka(adi, lia).
+suka(dewi, adi).
+kuliah(jones, sistempakar).
+kuliah(toni, sistempakar).
+nilai(jones, sistempakar, 80).
+nilai(toni, sistempakar, 45).
+%Aturan
+suka(toni, X):- suka(dewi, X).
+lulus(X, Y):- kuliah(X, Y), nilai(X,Y,Z), Z>50.
+GOAL
+Merupak tempat pertanyaan (query) diberikan atau diminta prolog untuk memberikan jawaban yang dikendaki.
+Contoh:
+ Berapa nilai sistempakar si Jones?
+GOAL
+nilai(jones, sistempakar, X). 
+Siapa saja yang lulus sistempakar?
+GOAL
+lulus(X, sistempakar).
+Apakah Jones lulus matakuliah sistempakar?
+GOAL
+
+VARIABEL DALAM PROLOG dan LIST
+
+Variabel prolog dengan huruf besar aau dimulai dengan garis bawah (_) Variabel dalam klausa selalu tersamakan
+(unified)
+telah_belajar(Setiap_orang,peket).
+dapat_balajar(Siapa_saja, Apa_saja) :-
+telah_belajar(Siapa_saja, persyaratan(Apa_saja)).
+dapat_belajar(Siapa_saja, Apa_saja) :-
+
+boleh_belajar(Siapa_saja, Apa_saja):-
+List merupakan suatu variabel yang sering digunakan dalam pemrograman Prolog. List ditandai dengan
+[elemen1,elemen2, …..]
+List berbagi atas :
+[Head[Tail]
+Contoh program :
+1.      Ketikan klause simple ini :
+dosen(bejo,harvard_graphic)
+Lalu consult dan beri pertanyaan
+?-dosen(bejo,Mata_Kuliah)
+?-dosen(Siapa,Harvard_garaphic)
+?-dosen(Siapa,Apa)
+2.      Ketikan program di bawah ini :
+Angka([1,2,3,4])
+Kalimat(kucing,[duduk,di|[atas,meja]])
+?-angkat(1,Y[Z])
+?-kalimat(kucing,[kata_kerja|Sisa])
